@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Rodrigo Borges | Transporte Particular e Executivo</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Transporte particular e executivo com segurança, conforto e pontualidade. Traslado para aeroportos, viagens e eventos com motorista de confiança." />
+  <meta name="keywords" content="transporte particular, motorista particular, transporte executivo, transporte para aeroporto, traslado aeroporto, motorista para viagem, transporte privado, motorista 24h, transporte para eventos" />
+
+  <!-- FONTE -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ÍCONES -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- ESTILO -->
+  <style>
+    :root {
+      --cor-primaria: #F9B233;
+      --cor-secundaria: #1B1B1B;
+      --cor-texto: #ffffff;
+      --cor-texto-secundario: #cccccc;
+      --fonte-padrao: 'Poppins', sans-serif;
+      --cor-borda: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--fonte-padrao);
+    }
+
+    body {
+      background-color: var(--cor-secundaria);
+      color: var(--cor-texto);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    /* HEADER COM MENU HORIZONTAL */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(27, 27, 27, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--cor-borda);
+      z-index: 1000;
+      padding: 10px 0;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* LOGO NO HEADER - 200x150px AO LADO DO TEXTO */
+    .logo-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-imagem {
+      width: 200px;
+      height: 150px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-imagem img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-texto {
+      display: flex;
+      flex-direction: column;
+      white-space: nowrap;
+    }
+
+    .logo-texto h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+      color: var(--cor-texto);
+      line-height: 1.2;
+    }
+
+    .logo-texto span {
+      font-size: 1.1rem;
+      color: var(--cor-primaria);
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* MENU HORIZONTAL */
+    .nav-horizontal {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-horizontal ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-horizontal a {
+      color: var(--cor-texto-secundario);
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 8px 0;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-horizontal a:hover,
+    .nav-horizontal a.ativo {
+      color: var(--cor-primaria);
+    }
+
+    .nav-horizontal a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--cor-primaria);
+      transition: width 0.3s ease;
+    }
+
+    .nav-horizontal a:hover::after,
+    .nav-horizontal a.ativo::after {
+      width: 100%;
+    }
+
+    /* BOTÃO MENU MOBILE */
+    .botao-menu-mobile {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--cor-texto);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* HERO SECTION - SEM CARD, TRANSPARENTE */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                  url("https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      margin-top: 90px;
+    }
+
+    .hero-conteudo {
+      text-align: center;
+      max-width: 900px;
+      padding: 60px 40px;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(5px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-conteudo h2 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-conteudo h2 span {
+      color: var(--cor-primaria);
+      position: relative;
+    }
+
+    .hero-conteudo p {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 40px;
+      line-height: 1.6;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    /* BOTÃO HERO */
+    .btn-cta-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 45px;
+      border-radius: 50px;
+      background: var(--cor-primaria);
+      color: #000;
+      font-weight: 600;
+      font-size: 1.2rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(249, 178, 51, 0.4);
+    }
+
+    .btn-cta-hero:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(249, 178, 51, 0.5);
+    }
+
+    .btn-cta-hero i {
+      font-size: 1.3rem;
+    }
+
+    /* SEÇÕES */
+    section {
+      padding: 100px 0;
+    }
+
+    .titulo-secao {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .titulo-secao h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 15px;
+    }
+
+    .titulo-secao h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: var(--cor-primaria);
+      border-radius: 2px;
+    }
+
+    .titulo-secao h2 span {
+      color: var(--cor-primaria);
+    }
+
+    /* SERVIÇOS */
+    .grid-servicos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .card-servico {
+      background: rgba(34, 34, 34, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 40px 30px;
+      border-radius: 15px;
+      border: 1px solid var(--cor-borda);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-servico::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--cor-primaria);
+      transition: width 0.3s ease;
+    }
+
+    .card-servico:hover {
+      transform: translateY(-10px);
+      border-color: var(--cor-primaria);
+    }
+
+    .card-servico:hover::before {
+      width: 100%;
+      opacity: 0.1;
+    }
+
+    .card-servico i {
+      font-size: 3rem;
+      color: var(--cor-primaria);
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .card-servico h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .card-servico p {
+      color: var(--cor-texto-secundario);
+      line-height: 1.6;
+    }
+
+    /* SEÇÃO UNIFICADA - DIFERENCIAIS E VALORES */
+    .secao-unificada {
+      background: linear-gradient(135deg, rgba(27, 27, 27, 0.9) 0%, rgba(34, 34, 34, 0.9) 100%);
+      border-top: 1px solid var(--cor-borda);
+      border-bottom: 1px solid var(--cor-borda);
+    }
+
+    .grid-unificada {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .card-unificado {
+      background: rgba(40, 40, 40, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 15px;
+      border: 1px solid var(--cor-borda);
+    }
+
+    .card-unificado h3 {
+      color: var(--cor-primaria);
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      text-align: center;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .card-unificado h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--cor-primaria);
+      border-radius: 2px;
+    }
+
+    .lista-valores {
+      list-style: none;
+    }
+
+    .lista-valores li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: var(--cor-texto-secundario);
+      font-size: 1rem;
+    }
+
+    .lista-valores li:last-child {
+      border-bottom: none;
+    }
+
+    .lista-valores li::before {
+      content: '✓';
+      color: var(--cor-primaria);
+      font-weight: bold;
+      font-size: 1.2rem;
+      min-width: 20px;
+    }
+
+    /* BOTÃO CTA NA SEÇÃO UNIFICADA */
+    .cta-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .cta-container h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--cor-texto);
+    }
+
+    .cta-container p {
+      color: var(--cor-texto-secundario);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-cta-unificado {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 40px;
+      border-radius: 50px;
+      background: var(--cor-primaria);
+      color: #000;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(249, 178, 51, 0.4);
+    }
+
+    .btn-cta-unificado:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(249, 178, 51, 0.5);
+    }
+
+    /* FOOTER COM LOGO 200x150px */
+    footer {
+      background: #111;
+      padding: 60px 0 30px;
+      text-align: center;
+      border-top: 1px solid var(--cor-borda);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* LOGO NO FOOTER - 200x150px */
+    .logo-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .logo-footer-imagem {
+      width: 200px;
+      height: 150px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-footer-imagem img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-footer-texto {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .logo-footer-texto h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+      color: var(--cor-texto);
+      line-height: 1.2;
+    }
+
+    .logo-footer-texto span {
+      font-size: 1.1rem;
+      color: var(--cor-primaria);
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    footer p {
+      color: var(--cor-texto-secundario);
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    .info-contato {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-item i {
+      color: var(--cor-primaria);
+      font-size: 1.2rem;
+    }
+
+    .copyright {
+      padding-top: 20px;
+      border-top: 1px solid var(--cor-borda);
+      margin-top: 30px;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 1200px) {
+      .logo-imagem,
+      .logo-footer-imagem {
+        width: 180px;
+        height: 135px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .nav-horizontal ul {
+        gap: 20px;
+      }
+      
+      .hero-conteudo h2 {
+        font-size: 2.8rem;
+      }
+      
+      .logo-imagem,
+      .logo-footer-imagem {
+        width: 160px;
+        height: 120px;
+      }
+      
+      .logo-texto h1,
+      .logo-footer-texto h3 {
+        font-size: 1.8rem;
+      }
+      
+      .logo-texto span,
+      .logo-footer-texto span {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        padding: 0 15px;
+      }
+
+      .botao-menu-mobile {
+        display: block;
+      }
+
+      .nav-horizontal {
+        position: fixed;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        background: rgba(27, 27, 27, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 30px 20px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid var(--cor-borda);
+      }
+
+      .nav-horizontal.ativo {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-horizontal ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+      }
+
+      .nav-horizontal li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-horizontal a {
+        display: block;
+        padding: 15px;
+        font-size: 1.1rem;
+      }
+
+      .logo-header {
+        gap: 10px;
+      }
+
+      .logo-imagem {
+        width: 140px;
+        height: 105px;
+      }
+
+      .logo-texto h1 {
+        font-size: 1.6rem;
+      }
+
+      .logo-texto span {
+        font-size: 0.9rem;
+      }
+
+      .hero-conteudo {
+        padding: 40px 20px;
+        margin: 0 15px;
+      }
+
+      .hero-conteudo h2 {
+        font-size: 2.2rem;
+      }
+
+      .hero-conteudo p {
+        font-size: 1.1rem;
+      }
+
+      .btn-cta-hero {
+        padding: 16px 35px;
+        font-size: 1.1rem;
+      }
+
+      .titulo-secao h2 {
+        font-size: 2rem;
+      }
+
+      .grid-servicos,
+      .grid-unificada {
+        grid-template-columns: 1fr;
+      }
+
+      .card-unificado {
+        padding: 30px 20px;
+      }
+
+      .logo-footer {
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .logo-footer-imagem {
+        width: 140px;
+        height: 105px;
+      }
+
+      .logo-footer-texto {
+        align-items: flex-start;
+      }
+
+      .logo-footer-texto h3 {
+        font-size: 1.6rem;
+      }
+
+      .logo-footer-texto span {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-header {
+        gap: 8px;
+      }
+
+      .logo-imagem {
+        width: 100px;
+        height: 75px;
+      }
+
+      .logo-texto h1 {
+        font-size: 1.2rem;
+      }
+
+      .logo-texto span {
+        font-size: 0.75rem;
+      }
+
+      .hero-conteudo h2 {
+        font-size: 1.8rem;
+      }
+
+      .hero-conteudo p {
+        font-size: 1rem;
+      }
+
+      .info-contato {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .logo-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .logo-footer-imagem {
+        width: 120px;
+        height: 90px;
+      }
+
+      .logo-footer-texto {
+        align-items: center;
+        text-align: center;
+      }
+
+      .logo-footer-texto h3 {
+        font-size: 1.4rem;
+      }
+
+      .logo-footer-texto span {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER COM MENU HORIZONTAL -->
+  <header>
+    <div class="header-container">
+      <!-- LOGO - 200x150px AO LADO DO TEXTO -->
+      <div class="logo-header">
+        <div class="logo-imagem">
+          <!-- Imagem logo-rafael.png do seu PC local -->
+          <img src="logo-rafael.png" alt="Rodrigo Borges Transporte">
+        </div>
+        <div class="logo-texto">
+          <h1>Rodrigo Borges</h1>
+          <span>Transporte Particular</span>
+        </div>
+      </div>
+
+      <!-- BOTÃO MENU MOBILE -->
+      <button class="botao-menu-mobile" id="toggleMenuMobile">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <!-- NAVEGAÇÃO HORIZONTAL SEM CONTATO -->
+      <nav class="nav-horizontal" id="navHorizontal">
+        <ul>
+          <li><a href="#inicio" class="ativo">Início</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#diferenciais-valores">Diferenciais & Valores</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main>
+    
+    <!-- HERO SECTION - SEM CARD, TRANSPARENTE -->
+    <section class="hero-section" id="inicio">
+      <div class="hero-conteudo">
+        <h2>
+          Transporte <span>seguro</span>, pontual<br>
+          e <span>confortável</span> para você
+        </h2>
+        <p>
+          Motorista particular de confiança para deslocamentos diários,
+          aeroportos, eventos e viagens intermunicipais. 
+          Experiência premium com foco total no seu bem-estar e segurança.
+        </p>
+        <button class="btn-cta-hero" id="botao-hero">
+          <i class="bi bi-whatsapp"></i> Solicitar orçamento
+        </button>
+      </div>
+    </section>
+
+    <!-- SEÇÃO SERVIÇOS -->
+    <section id="servicos">
+      <div class="container">
+        <div class="titulo-secao">
+          <h2>Nossos <span>Serviços</span></h2>
+        </div>
+
+        <div class="grid-servicos">
+          <div class="card-servico">
+            <i class="bi bi-car-front"></i>
+            <h3>Transporte Executivo</h3>
+            <p>Para reuniões, compromissos profissionais e executivos com máximo conforto e discrição.</p>
+          </div>
+
+          <div class="card-servico">
+            <i class="bi bi-airplane"></i>
+            <h3>Traslado Aeroporto</h3>
+            <p>Pontualidade garantida para embarques e desembarques, com assistência para bagagens.</p>
+          </div>
+
+          <div class="card-servico">
+            <i class="bi bi-calendar-event"></i>
+            <h3>Eventos Especiais</h3>
+            <p>Casamentos, formaturas, festas e eventos corporativos com serviço diferenciado.</p>
+          </div>
+
+          <div class="card-servico">
+            <i class="bi bi-geo-alt"></i>
+            <h3>Viagens Intermunicipais</h3>
+            <p>Conforto e segurança para viagens entre cidades, com paradas programadas conforme necessidade.</p>
+          </div>
+
+          <div class="card-servico">
+            <i class="bi bi-building"></i>
+            <h3>Serviço Corporativo</h3>
+            <p>Solução para empresas com frota disponível para executivos e visitas comerciais.</p>
+          </div>
+
+          <div class="card-servico">
+            <i class="bi bi-clock"></i>
+            <h3>Deslocamentos Diários</h3>
+            <p>Ida e volta do trabalho, consultas, compras e compromissos pessoais com horário flexível.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO UNIFICADA - DIFERENCIAIS E VALORES -->
+    <section class="secao-unificada" id="diferenciais-valores">
+      <div class="container">
+        <div class="titulo-secao">
+          <h2>Nossos <span>Diferenciais & Valores</span></h2>
+        </div>
+
+        <div class="grid-unificada">
+          <div class="card-unificado">
+            <h3>Nossos Diferenciais</h3>
+            <ul class="lista-valores">
+              <li>Atendimento personalizado e humanizado</li>
+              <li>Segurança e confiança em cada viagem</li>
+              <li>Pontualidade rigorosa</li>
+              <li>Carro confortável e sempre higienizado</li>
+              <li>Motorista experiente e discreto</li>
+              <li>Disponibilidade flexível, incluindo horários especiais</li>
+            </ul>
+          </div>
+
+          <div class="card-unificado">
+            <h3>Nossos Valores</h3>
+            <ul class="lista-valores">
+              <li>Segurança em primeiro lugar</li>
+              <li>Pontualidade e compromisso</li>
+              <li>Conforto e bem-estar do passageiro</li>
+              <li>Atendimento humanizado e profissional</li>
+              <li>Discrição e confiança</li>
+              <li>Transparência e ética em todos os serviços</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- BOTÃO CTA NA SEÇÃO UNIFICADA -->
+        <div class="cta-container">
+          <h3>Pronto para uma experiência de transporte diferente?</h3>
+          <p>Solicite seu orçamento sem compromisso e descubra o conforto e segurança do transporte particular premium.</p>
+          <button class="btn-cta-unificado" id="btnCtaUnificado">
+            <i class="bi bi-whatsapp"></i> Falar no WhatsApp Agora
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contato">
+      <div class="footer-container">
+        <!-- LOGO NO FOOTER - 200x150px -->
+        <div class="logo-footer">
+          <div class="logo-footer-imagem">
+            <img src="logo-rafael.png" alt="Rodrigo Borges Transporte">
+          </div>
+          <div class="logo-footer-texto">
+            <h3>Rodrigo Borges</h3>
+            <span>Transporte Particular</span>
+          </div>
+        </div>
+
+        <p>Segurança • Pontualidade • Conforto • Confiança</p>
+        
+        <div class="info-contato">
+          <div class="info-item">
+            <i class="bi bi-whatsapp"></i>
+            <span>(11) 96070-8510</span>
+          </div>
+          <div class="info-item">
+            <i class="bi bi-clock"></i>
+            <span>Atendimento 24h</span>
+          </div>
+          <div class="info-item">
+            <i class="bi bi-geo-alt"></i>
+            <span>Santa Catarina - SC</span>
+          </div>
+        </div>
+        
+        <div class="copyright">
+          <p style="font-size: 0.9rem; color: #888;">
+            &copy; 2024 Rodrigo Borges Transporte Particular. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Configuração WhatsApp
+    const numeroWhatsApp = "5511960708510";
+    const mensagem = encodeURIComponent(
+      "Olá, gostaria de solicitar um orçamento para transporte particular."
+    );
+    const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
+
+    // Elementos do menu
+    const toggleMenuMobile = document.getElementById('toggleMenuMobile');
+    const navHorizontal = document.getElementById('navHorizontal');
+    const navLinks = document.querySelectorAll('.nav-horizontal a');
+    const botaoHero = document.getElementById('botao-hero');
+    const btnCtaUnificado = document.getElementById('btnCtaUnificado');
+
+    // Alternar menu mobile
+    toggleMenuMobile.addEventListener('click', () => {
+      navHorizontal.classList.toggle('ativo');
+      
+      // Muda o ícone
+      const icon = toggleMenuMobile.querySelector('i');
+      if (navHorizontal.classList.contains('ativo')) {
+        icon.className = 'bi bi-x-lg';
+      } else {
+        icon.className = 'bi bi-list';
+      }
+    });
+
+    // Fechar menu mobile ao clicar em um link
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navHorizontal.classList.remove('ativo');
+          toggleMenuMobile.querySelector('i').className = 'bi bi-list';
+        }
+        
+        // Ativa o link clicado
+        navLinks.forEach(l => l.classList.remove('ativo'));
+        link.classList.add('ativo');
+      });
+    });
+
+    // WhatsApp buttons
+    function abrirWhatsApp() {
+      window.open(linkWhatsApp, '_blank');
+    }
+
+    botaoHero.addEventListener('click', abrirWhatsApp);
+    btnCtaUnificado.addEventListener('click', abrirWhatsApp);
+
+    // Scroll suave para seções
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Adiciona classe ativa ao menu baseado no scroll
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id]');
+      const scrollY = window.pageYOffset + 150;
+      
+      sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
+        
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          navLinks.forEach(link => link.classList.remove('ativo'));
+          const activeLink = document.querySelector(`.nav-horizontal a[href="#${sectionId}"]`);
+          if(activeLink) activeLink.classList.add('ativo');
+        }
+      });
+
+      // Se estiver no topo, ativa "Início"
+      if(scrollY < 100) {
+        navLinks.forEach(link => link.classList.remove('ativo'));
+        document.querySelector('.nav-horizontal a[href="#inicio"]').classList.add('ativo');
+      }
+    });
+
+    // Fecha menu mobile ao clicar fora
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        if (!navHorizontal.contains(e.target) && 
+            !toggleMenuMobile.contains(e.target) && 
+            navHorizontal.classList.contains('ativo')) {
+          navHorizontal.classList.remove('ativo');
+          toggleMenuMobile.querySelector('i').className = 'bi bi-list';
+        }
+      }
+    });
+
+    // Tratamento de erro para imagem da logo
+    document.addEventListener('DOMContentLoaded', () => {
+      const logoImgs = document.querySelectorAll('.logo-imagem img, .logo-footer-imagem img');
+      
+      logoImgs.forEach(img => {
+        img.onerror = function() {
+          this.style.display = 'none';
+          const container = this.parentElement;
+          container.innerHTML = '<i class="bi bi-car-front" style="font-size: 3rem; color: #F9B233;"></i>';
+          container.style.display = 'flex';
+          container.style.alignItems = 'center';
+          container.style.justifyContent = 'center';
+        };
+      });
+    });
+  </script>
+</body>
+</html>
